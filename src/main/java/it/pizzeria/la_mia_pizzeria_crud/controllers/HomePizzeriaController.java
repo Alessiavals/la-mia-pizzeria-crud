@@ -13,7 +13,6 @@ public class HomePizzeriaController {
     @GetMapping("/home")
     public String home (Model model) {
        
-        model.addAttribute("Margherita");
         return "home";
     }
     

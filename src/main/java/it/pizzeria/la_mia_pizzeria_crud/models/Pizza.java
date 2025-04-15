@@ -1,10 +1,14 @@
-package it.pizzeria.la_mia_pizzeria_crud.controllers;
+package it.pizzeria.la_mia_pizzeria_crud.models;
 
 public class Pizza {
     
     private String nome;
     private String descrizione;
     private double prezzo;
+
+    public Pizza () {
+        
+    }
 
     public Pizza (String nome, String descrizione, double prezzo) {
         nome = this.nome;
