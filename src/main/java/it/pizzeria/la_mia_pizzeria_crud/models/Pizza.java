@@ -1,21 +1,38 @@
 package it.pizzeria.la_mia_pizzeria_crud.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity //------> marca la classe come entità*
+@Table(name="Pizza") //----> identifica la tabella su DB*
 public class Pizza {
     
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY) //------> lo identifica come chiave primaria*
+    private Integer id;
+
+    @Column(unique=true, nullable=false)
     private String nome;
-    private String descrizione;
+
+    private String ingredienti;
     private double prezzo;
 
+    // -------- costruttori*
     public Pizza () {
         
     }
 
     public Pizza (String nome, String descrizione, double prezzo) {
         nome = this.nome;
-        descrizione = this.descrizione;
+        descrizione = this.ingredienti;
         prezzo = this.prezzo;
     }
 
+    // --------- metodi *
     public String getNome() {
         return nome;
     }
@@ -25,11 +42,11 @@ public class Pizza {
     }
 
     public String getDescrizione() {
-        return descrizione;
+        return ingredienti;
     }
 
     public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
+        this.ingredienti = descrizione;
     }
 
     public double getPrezzo() {
@@ -41,6 +58,5 @@ public class Pizza {
     }
 
 
-    
 
 }
