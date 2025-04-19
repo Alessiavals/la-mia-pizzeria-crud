@@ -17,8 +17,11 @@ public class Pizza {
 
     @Column(unique=true, nullable=false)
     private String nome;
-
+    
+    @Column(length=50, nullable=false)
     private String ingredienti;
+
+    @Column(nullable=false)
     private double prezzo;
 
     // -------- costruttori*
@@ -26,11 +29,12 @@ public class Pizza {
         
     }
 
-    public Pizza (String nome, String descrizione, double prezzo) {
-        nome = this.nome;
-        descrizione = this.ingredienti;
-        prezzo = this.prezzo;
+    public Pizza(String nome, String ingredienti, double prezzo) {
+        this.nome = nome;
+        this.ingredienti = ingredienti;
+        this.prezzo = prezzo;
     }
+    
 
     // --------- metodi *
     public String getNome() {
@@ -41,12 +45,12 @@ public class Pizza {
         this.nome = nome;
     }
 
-    public String getDescrizione() {
+    public String getIngredienti() {
         return ingredienti;
     }
 
-    public void setDescrizione(String descrizione) {
-        this.ingredienti = descrizione;
+    public void setIngredienti(String ingredienti) {
+        this.ingredienti = ingredienti;
     }
 
     public double getPrezzo() {

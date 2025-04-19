@@ -14,7 +14,10 @@
         <!-- MENU PIZZE ROSSE -->
 
 
-        <h2>Menu Pizze</h2>   
+        <h2>Menu Pizze</h2>
+       
+        <!--Messaggio che mostra se la lista è vuota-->
+        <div th:unless="|{listaPizzeBianche.isEmpty()} && {listaPizzeRosse.isEmpty()}|">La lista è vuota!</div>
                  
         <table class="table">
           <thead>
@@ -26,24 +29,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>"Margherita"</td>
-              <td>Pomodoro, Mozzarella, Basilico, Olio e.o., Sale</td>
-              <td>€6,00</td>
+            <tr th:each="pizza : ${listaPizzeRosse}">
+              <td th:text="${pizza.nome}"></td>
+              <td><em th:text="${pizza.ingredienti}"></em></td>
+              <td th:text="${#numbers.formatDecimal(pizza.prezzo, 1, 'POINT', 2, 'COMMA')} + ' €'"></td>
               <td>@url foto pizza</td>
             </tr>
-            <tr>
-              <td>"Marinara"</td>
-              <td>Pomodoro, Aglio, Origano, Olio e.o., Sale</td>
-              <td>€6,50</td>
-              <td>@url foto pizza</td>
-            </tr>
-            <tr>
-              <td>"Diavola"</td>
-              <td>Pomodoro, Mozzarella, Salame Piccante, Olio e.o., Sale</td>
-              <td>€7,00</td>
-              <td>@url foto pizza</td>
-            </tr>
+          </tbody>
+          
+          </table>
 
             <!-- MENU PIZZE BIANCHE -->
 
@@ -57,26 +51,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>"Biancaneve"</td>
-                    <td>Mozzarella, Olio e.o., Sale</td>
-                    <td>€6,00</td>
+                  <tr th:each="pizza : ${listaPizzeBianche}">
+                    <td th:text="${pizza.nome}"></td>
+                    <td><em th:text="${pizza.ingredienti}"></em></td>
+                    <td th:text="${#numbers.formatDecimal(pizza.prezzo, 1, 'POINT', 2, 'COMMA')} + ' €'"></td>
                     <td>@url foto pizza</td>
                   </tr>
-                  <tr>
-                    <td>"Patate e Salsiccia"</td>
-                    <td>Mozzarella, Patate, Salsiccia, Olio e.o., Sale</td>
-                    <td>€8,50</td>
-                    <td>@url foto pizza</td>
-                  </tr>
-                  <tr>
-                    <td>"Paperino"</td>
-                    <td>Mozzarella, Wurstel, Patatine, Ketchup, Olio e.o., Sale</td>
-                    <td>€9,00</td>
-                    <td>@url foto pizza</td>
-                  </tr>
-            
-          </tbody>
+              </tbody>
         </table>
       </div>
 
