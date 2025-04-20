@@ -1,0 +1,13 @@
+body {
+    background-image: url('img/10582192_4490229.jpg'); /* URL dell'immagine */
+    background-size: cover;           /* Copre tutto lo schermo */
+    background-repeat: no-repeat;     /* Non ripete l'immagine */
+    background-attachment: fixed;     /* STATICO! */
+    background-position: center;      /* Centra l'immagine */
+                
+  }
+
+  h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(221, 93, 70);
+  }
